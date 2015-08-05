@@ -1,0 +1,47 @@
+.navbar-default.sidebar{:role => "navigation"}
+  .sidebar-nav.navbar-collapse
+    %ul#side-menu.nav
+      %li.sidebar-search
+        %form{action: '/items'}
+          .input-group.custom-search-form
+            %input#sap_number.form-control{:name=> 'sap_number', :placeholder => "SAP No", :type => "text"}
+              %span.input-group-btn
+                %button.btn.btn-default{:type => "submit"}
+                  %i.fa.fa-search
+        / /input-group
+      %li
+        %a{:href => "/warehouses"}
+          %i.fa.fa-home
+          Warehouses
+      %li
+        %a{:href => "/cncs"}
+          %i.fa.fa-home
+          CNCs
+      %li
+        %a{:href => "/item_types"}
+          %i.fa.fa-folder
+          Item Types
+      %li
+        %a{:href => "/items"}
+          %i.fa.fa-tags
+          Items
+
+      %li.line.dk.hidden-folded
+
+      %li
+        %a{:href => "/item/arrival"}
+          %i.fa.fa-arrow-circle-right
+          Receive
+      %li
+        %a{:href => "/item/departure"}
+          %i.fa.fa-arrow-circle-left
+          Issue
+      %li
+        %a{:href => "/status"}
+          %i.glyphicon.glyphicon-stats
+          Status
+      %li
+        %a{:href => "/logout"}
+          %i.glyphicon.glyphicon-log-out
+          Logout
+          %p.small.text-danger= '(' + session[:user].name + ')'

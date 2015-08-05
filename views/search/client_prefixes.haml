@@ -1,0 +1,17 @@
+#panel_prefixes.panel.panel-default{"data-bind" => " visible: $root.show_client_prefixes()"}
+  .panel-heading
+    %h4.panel-title
+      %a{"data-target" => "#collapse_prefixes", "data-toggle" => "collapse", :href => "#collapse_prefixes", "data-bind" => "text: $root.prefixes_header_text()"}
+  #collapse_prefixes.panel-collapse.collapse.in
+    .panel-body
+      %table.table
+        %thead
+          %th Prefix
+          %th Vlan
+          %th Hetzner subnet/prefix range
+        %tbody{"data-bind" => "foreach: client_prefixes"}
+          %tr
+            %td
+              %a{"data-bind" => "text: prefix, :attr: {'href' : $parent.prefix_link($data)}"}
+            %td{"data-bind" => "text: vlan"}
+            %td{"data-bind" => "text: $parent.hetzner_subnet_prefix_range($data)"}

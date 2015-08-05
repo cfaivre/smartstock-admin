@@ -1,0 +1,41 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      %h1.page-header Status
+    / /.col-lg-12
+  / /.row
+  .row
+    .col-lg-2
+    .col-lg-8
+      .panel-heading
+      .panel-body
+        .table-responsive
+          %table.table.table-hover
+            %thead
+            %tbody
+              %tr
+                %td
+                  %h3 Reader Connection
+                %td
+                  .circle.red
+              %tr
+                %td
+                  %h3 Internet Connection
+                %td
+                  .circle.green
+              %tr
+                %td
+                  %h3 Remote Service
+                %td
+                  .circle.red
+
+%script{src: '/js/application/chart_helper.js'}
+:javascript
+  var statusHelper;
+  //var data = #{@data};
+  $(document).ready(function () {
+      var config = {
+      };
+    statusHelper = new StatusHelper(data,config);
+    statusHelper.setup({})
+  });

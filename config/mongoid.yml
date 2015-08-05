@@ -1,0 +1,31 @@
+development:
+  sessions:
+    default:
+      database: stock_development
+      hosts:
+        - localhost:27017
+      identity_map_enabled: true
+
+test:
+  sessions:
+    default:
+      database: stock_test
+      hosts:
+        - localhost:27017
+      identity_map_enabled: true
+
+staging:
+  sessions:
+    default:
+      database: stock
+      hosts:
+        - localhost:27017
+      identity_map_enabled: true
+
+production:
+  sessions:
+    default:
+      database: stock
+      hosts:
+        - localhost:27017
+      identity_map_enabled: true

@@ -1,0 +1,46 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      %h1.page-header Items
+    / /.col-lg-12
+  / /.row
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-heading
+        / /.panel-heading
+        .panel-body
+          .dataTable_wrapper
+            %table#dataTables-example.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Serial Number
+                  %th RFID
+                  %th Location
+                  %th Manufacturing Date
+                  %th PO Number
+                  %th SAP Number
+              %tbody{"data-bind" => "foreach: items()"}
+                %tr.data-row{"data-toggle" => "context"}
+                  %td{"data-bind" => "text: serial_number()"}
+                  %td{"data-bind" => "text: rfid()"}
+                  %td{"data-bind" => "text: location()"}
+                  %td{"data-bind" => "text: date()"}
+                  %td{"data-bind" => "text: purchase_order_number()"}
+                  %td
+                    %a{"data-bind" => "text: sap_number(), :attr: { 'href': '/items?sap_number=' + sap_number() }"}
+
+  / / main column 2
+/ /hbox layout
+%script{src: '/js/application/item_list_helper.js'}
+:javascript
+  var itemListHelper;
+  var data = #{@data};
+  $(document).ready(function () {
+      var config = {
+          itemListUrl: '/item/list/',
+      };
+    itemListHelper = new ItemListHelper(data,config);
+    itemListHelper.setup({})
+  });
+

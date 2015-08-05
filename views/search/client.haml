@@ -1,0 +1,28 @@
+/ hbox layout
+#client_details.hbox.hbox-auto-xs.bg-light{"ng-init" => "app.settings.asideFolded = true; app.settings.asideFixed = true; app.settings.asideDock = false; app.settings.container = false; app.hideAside = false "}
+
+  / main column 1
+  #content_left.col.w-md.lter.b-l
+    .vbox
+      .wrapper.b-b.b-light
+        .font-thin.h4{"data-bind" => "text: $root.header_text()"}
+      .row-row
+        .cell
+          .cell-inner
+            .wrapper-md
+            - if defined?(@query) and @query.empty?
+              %p.lead.text-danger No results found for #{@query}
+            - else
+              .col-md-6
+                = haml :'search/client_prefixes'
+                = haml :'search/client_colo'
+                / = haml :'search/client_assets'
+%script{src: '/js/application/search_client_helper.js'}
+:javascript
+  var searchClientHelper;
+  var data = #{@data};
+  $(document).ready(function () {
+      var config = {};
+    searchClientHelper = new SearchClientHelper(data,config);
+    searchClientHelper.setup({})
+  });

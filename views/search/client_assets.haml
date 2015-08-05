@@ -1,0 +1,14 @@
+#panel_assets.panel.panel-default{"data-bind" => " visible: $root.show_assets()"}
+  .panel-heading
+    %h4.panel-title
+      %a.collapsed{"data-target" => "#collapse_assets", "data-toggle" => "collapse", :href => "#collapse_assets"}
+        Client assets
+  #collapse_assets.panel-collapse.collapse.in
+    .panel-body
+      %table.table
+        %thead
+          %th Asset
+        %tbody{"data-bind" => "foreach: assets"}
+          %tr
+            %td
+              %a{"data-bind" => "text: position, :attr: {'href' : tag}"}

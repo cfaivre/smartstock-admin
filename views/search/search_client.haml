@@ -1,0 +1,6 @@
+.container
+  - if defined?(@query) and @query.empty?
+    %p.lead.text-danger No results found for #{@query}
+  - else
+    .container= haml :'search_client_prefixes'
+    .container= haml :'search_client_colo'	

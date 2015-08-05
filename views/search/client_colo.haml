@@ -1,0 +1,15 @@
+#panel_colo_positions.panel.panel-default{"data-bind" => " visible: $root.show_colo_locations()"}
+  .panel-heading
+    %h4.panel-title
+      %a.collapsed{"data-target" => "#collapse_colo_positions", "data-toggle" => "collapse", :href => "#collapse_colo_positions", "data-bind" => "text: $root.colo_locations_header_text()"}
+        Client colo locations for client
+  #collapse_colo_positions.panel-collapse.collapse.in
+    .panel-body
+      %table.table
+        %thead
+          %th Location
+        %tbody{"data-bind" => "foreach: colo_locations"}
+          %tr
+            %td
+              %a{"data-bind" => "text: location_mapped, :attr: {'href' : $parent.colo_link($data)}"}
+            %td{"data-bind" => "text: type"}

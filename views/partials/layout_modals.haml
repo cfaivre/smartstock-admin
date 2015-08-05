@@ -1,0 +1,28 @@
+%button#screen_blocker
+#screen_blocker_spinner
+  .notification.processing
+    %img.notificationSpinner{:src => "/img/loading.gif"}
+.clear
+#confirmationModal.modal.fade{"data-backdrop"=>"static"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+        %h4.modal-title Confirmation
+      .modal-body
+        %p Do you want to save changes you made to document before closing?
+      .modal-footer
+        %button.btn.btn-primary{:id => "modalOK", "data-dismiss" => "modal"} OK
+        %button.btn.btn-warning{:id => "modalCancel"} Cancel
+.clear
+#appModal.modal.fade{"data-backdrop"=>"static", "tabindex" => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+        %h4.modal-title
+      .modal-body
+        %p
+.clear
+#stdout
+  %span.message

@@ -1,0 +1,55 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %title Stock
+
+    %link{:type => "text/css", :href => "/css/bootstrap.min.css", :rel => "stylesheet"}
+    %link{:href => "/css/stock/sb-admin-2.css", :rel => "stylesheet"}
+    %link{:type => "text/css", :href => "../bower_components/font-awesome/css/font-awesome.min.css", :rel => "stylesheet"}
+
+    %link{:href => "/css/font.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:type => 'text/css', rel: 'stylesheet', href: '/css/stock.css'}
+    %link{:type => 'text/css', rel: 'stylesheet', href: '/css/stock/spinner.css'}
+
+    %script{:src => "/js/jquery.min.js"}
+    %script{:src => '/js/jquery.dataTables.min.js'}
+    %script{:src => "/js/bootstrap.min.js"}
+    %script{:src => '/js/dataTables.bootstrap.js'}
+    %script{:src => '/js/base.min.js'}
+    %script{:src => '/js/knockout/knockout-3.1.0.js'}
+    %script{:src => '/js/knockout/knockout.dirtyflag.js'}
+    %script{:src => '/js/knockout/knockout.mapping-2.4.1.js'}
+    %script{:src => '/js/knockout/knockout.validation.min.js'}
+    %script{:src => '/js/application/utils.js'}
+    %script{:src => '/js/application/core.js'}
+    %script{:src => '/js/application/infrastructure.js'}
+
+  %body
+
+    :javascript
+      var _showModal = false;
+      var core;
+      var config = {debug:false,searchUrl:'/acsearch', homeUrl : '/', myJobsUrl : '/myjobs'};
+      $(document).ready(function () {
+        core = new Core(config);
+        core.setup();
+      });
+    =styled_flash
+
+
+    %div#wrapper
+      / header
+      = haml :'partials/header'
+      / / header
+      / nav
+      = haml :'partials/left_navigation'
+      / nav
+      / content
+      = yield
+      / / content
+    = haml :'partials/layout_modals'
+
+

@@ -1,0 +1,73 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      %h1.page-header Receive Items
+    / /.col-lg-12
+  / /.row
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-heading
+        / /.panel-heading
+        .panel-body
+          .col-lg-3
+            .form#submit_form{role: 'form'}
+              %fieldset
+                .form-group
+                  %label Your Location:
+                  %input#new_location.form-control{ name: 'new_location',
+                                                    required: true, type: 'text',
+                                                    "data-bind" => "value: new_location",
+                                                    readonly: true}
+                .form-group
+                  %input#btnReadStock.btn.btn-primary{type: 'submit', value: 'Scan items', 'data-bind' => 'click: $root.readArrivalStock'}
+                  %input#btnReset.btn.btn-danger{type: 'submit', value: 'Reset', onclick:"location.href='/item/arrival';"}
+
+          .col-lg-3
+            .form-group
+              %label Storage Location:
+              %input#new_storage_location.form-control{ name: 'new_storage_location',
+                                                        required: true, type: 'text',
+                                                        "data-bind" => "value: new_storage_location"}
+            .form-group
+              %input.btn.btn-success{type: 'submit', value: 'Receive items', 'data-bind' => 'click: $root.acceptArrivalStock'}
+
+          .col-lg-2
+          .col-lg-2.counter{"data-bind"=>"text: items().length"}
+        <!-- ko if: items().length > 0-->
+        .panel-body
+          .dataTable_wrapper
+            %table#dataTables-example.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th RFID
+                  %th Serial Number
+                  %th Location
+                  %th Storage Location
+                  %th Manufacturing Date
+                  %th PO Number
+              %tbody{"data-bind" => "foreach: items()"}
+                %tr.data-row{"data-toggle" => "context"}
+                  %td{"data-bind" => "text: rfid()"}
+                  %td{"data-bind" => "text: serial_number()"}
+                  %td{"data-bind" => "text: location()"}
+                  %td{"data-bind" => "text: storage_location()"}
+                  %td{"data-bind" => "text: date()"}
+                  %td{"data-bind" => "text: purchase_order_number()"}
+        <!-- /ko -->
+
+        .panel-body
+          .row
+
+%script{src: '/js/application/item_arrival_helper.js'}
+:javascript
+  var itemArrivalHelper;
+  var data = #{@data};
+  $(document).ready(function () {
+      var config = {
+          itemArrivalUrl: '/item/arrival/',
+      };
+    itemArrivalHelper = new ItemArrivalHelper(data,config);
+    itemArrivalHelper.setup({})
+  });
+

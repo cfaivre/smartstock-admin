@@ -1,0 +1,37 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      %h1.page-header Chart
+    / /.col-lg-12
+  / /.row
+  .row
+    .col-lg-6
+      .canvas-holder.half
+        %canvas#myChart{style:'width:518px;height:400px;'}
+    .col-lg-4
+      .panel-body
+        .table-responsive
+          %table.table.table-bordered.table-hover
+            %thead
+              %tr
+                %th
+                %th Location
+                %th Count
+            %tbody{"data-bind" => "foreach: locations()"}
+              %tr.data-row{"data-toggle" => "context"}
+                %td{"data-bind" => ":attr: {'style' : 'background-color: ' + color() + ';'}"}
+                %td{"data-bind" => "text: location()"}
+                %td{"data-bind" => "text: counter()"}
+      
+
+%script{src: '/js/Chart.min.js'}
+%script{src: '/js/application/chart_helper.js'}
+:javascript
+  var chartHelper;
+  var data = #{@data};
+  $(document).ready(function () {
+      var config = {
+      };
+    chartHelper = new ChartHelper(data,config);
+    chartHelper.setup({})
+  });
