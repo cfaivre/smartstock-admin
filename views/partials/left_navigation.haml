@@ -28,15 +28,19 @@
 
       %li.line.dk.hidden-folded
 
-      %li
+      -#%li
         %a{:href => "/item/arrival"}
           %i.fa.fa-arrow-circle-right
           Receive
-      %li
+      -#%li
         %a{:href => "/item/departure"}
           %i.fa.fa-arrow-circle-left
           Issue
       %li
+        %a{:href => "/stock_take"}
+          %i.fa.fa-calendar
+          Stock Take
+      -#%li
         %a{:href => "/status"}
           %i.glyphicon.glyphicon-stats
           Status

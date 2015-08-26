@@ -4,6 +4,6 @@ development:
   uri: 'http://localhost:9393'
   #uri: 'http://eskom-api.staging.mshini.com'
 staging:
-  uri: 'http://eskom-stock-api.staging.mshini.com'
+  uri: 'http://eskom-api.staging.mshini.com'
 production:
-  uri: 'http://eskom-stock-api.mshini.com'
+  uri: 'http://eskom-api.mshini.com'

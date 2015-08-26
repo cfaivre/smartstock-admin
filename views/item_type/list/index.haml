@@ -27,20 +27,22 @@
                   %th SAP Number
                   %th Material Type
                   %th Description
+                  %th Color
                   %th Image
                   %th Rating
-                  %th Stats
+                  -#%th Stats
               %tbody{"data-bind" => "foreach: item_types()"}
                 %tr.data-row{"data-toggle" => "context"}
                   %td
                     %a{"data-bind" => "text: sap_number(), :attr: { 'href': '/items?sap_number=' + sap_number() }"}
                   %td{"data-bind" => "text: material_type()"}
                   %td{"data-bind" => "text: description()"}
+                    %td{"data-bind" => "style: { 'background-color': color() }"}
                   %td
                     %a.pop{href: '#'}
                       %img.item_type_thumbnail{"data-bind" => "click: $root.openImage, attr: {src: image()}"}
                   %td{"data-bind" => "text: rating()"}
-                  %td
+                  -#%td
                     %a{href: '#'}
                       .glyphicon.glyphicon-stats{"data-bind" => "click: $root.displayStats"}
 
