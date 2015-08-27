@@ -29,6 +29,10 @@ class StockApiClient
     @connection.get('/api/item-types', {} )
   end
 
+  def get_stock_takes
+    @connection.get('/api/stock-takes', {} )
+  end
+
   def item_details( rfids )
     @connection.get('/api/items/detail', {rfids: rfids} )
   end

@@ -1,0 +1,52 @@
+#page-wrapper
+  .row
+    .col-lg-12
+      %h1.page-header Stock Takes
+    / /.col-lg-12
+  / /.row
+
+  #statsmodal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog{"data-dismiss" => "modal"}
+      .modal-content
+        .modal-body
+          .dataTable_wrapper
+            %table#statsTable.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th ID
+                  %th Count
+              %tbody
+
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+          %span.sr-only Close
+        %img.imagepreview{:src => "", :style => "width: 100%;"}
+
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-heading
+        / /.panel-heading
+        .panel-body
+          .dataTable_wrapper
+            %table#dataTables-example.table.table-striped.table-bordered.table-hover
+              %thead
+                %tr
+                  %th Date
+              %tbody{"data-bind" => "foreach: stock_takes()"}
+                %tr.data-row{"data-toggle" => "context"}
+                  %td
+                    %a{"data-bind" => "text: created_at(), click: function() { $root.displayStats( stats() ); }"}
+
+%script{src: '/js/application/stock_take_list_helper.js'}
+:javascript
+  var stockTakeListHelper;
+  var data = #{@data};
+  $(document).ready(function () {
+      var config = {
+          stock_takeListUrl: '/stock_take/list/',
+      };
+    stockTakeListHelper = new StockTakeListHelper(data,config);
+    stockTakeListHelper.setup({})
+  });
+
