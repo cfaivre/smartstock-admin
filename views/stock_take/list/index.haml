@@ -30,9 +30,6 @@
         .panel-body
           .dataTable_wrapper
             %table#dataTables-example.table.table-striped.table-bordered.table-hover
-              %thead
-                %tr
-                  %th Date
               %tbody{"data-bind" => "foreach: stock_takes()"}
                 %tr.data-row{"data-toggle" => "context"}
                   %td
