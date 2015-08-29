@@ -8,3 +8,7 @@ get "/item_types" do
   @data = viewmodel.to_json
   haml :'item_type/list/index'
 end
+
+get "/item_type" do
+  StockApiClient.new.get_item_types( sap_number: params['sap_number'] ).to_json
+end

@@ -4,6 +4,7 @@ var StockTakeListHelper = function (data, config) {
        _applyKoBindings,
        _currentContext,
        _mapToJSON,
+       _itemTypeCallback,
        _setup;
 
 
@@ -20,11 +21,20 @@ var StockTakeListHelper = function (data, config) {
 
     _viewModel.displayStats = function( stats ) {
       $("#statsTable tbody").empty();
+
       $.each(stats, function(k,v){
-        $("#statsTable tbody").append("<tr><td>" + k + "</td><td>" +  v + "</td></tr>");
+        $.ajax({
+          type: "GET",
+          data: "sap_number=" + k,
+          url: "/item_type",
+        }).done(function(result) {
+          ko.utils.arrayMap(JSON.parse(result), function(item_type) {
+            $("#statsTable tbody").append("<tr><td>" + k + "</td><td>" +  v + "</td><td>" + item_type.description + "</td></tr>");
+          });
+          $('#statsmodal').modal('show');
+        });
       });
-      $('#statsmodal').modal('show');
-    } 
+    }
 
     ko.applyBindings(_viewModel, _currentContext[0]);
   };
@@ -44,12 +54,12 @@ var StockTakeListHelper = function (data, config) {
   }
 
   _setup = function() {
-      _currentContext = $('#content_left');
-      _applyKoBindings();
+    _currentContext = $('#content_left');
+    _applyKoBindings();
   };
 
   return {
-      setup: _setup
+    setup: _setup
   };
 
 };

@@ -8,6 +8,9 @@
   #statsmodal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
     .modal-dialog{"data-dismiss" => "modal"}
       .modal-content
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+          %span.sr-only Close
         .modal-body
           .dataTable_wrapper
             %table#statsTable.table.table-striped.table-bordered.table-hover
@@ -15,12 +18,8 @@
                 %tr
                   %th ID
                   %th Count
+                  %th Description
               %tbody
-
-        %button.close{"data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} &times;
-          %span.sr-only Close
-        %img.imagepreview{:src => "", :style => "width: 100%;"}
 
   .row
     .col-lg-12

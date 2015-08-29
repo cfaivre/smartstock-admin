@@ -25,8 +25,8 @@ class StockApiClient
     @connection.get('/api/items', params )
   end
 
-  def get_item_types
-    @connection.get('/api/item-types', {} )
+  def get_item_types( params )
+    @connection.get('/api/item-types', params )
   end
 
   def get_stock_takes
