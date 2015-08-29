@@ -10,6 +10,10 @@
                   %i.fa.fa-search
         / /input-group
       %li
+        %a{:href => "/stock_takes"}
+          %i.fa.fa-calendar
+          Stock Take
+      %li
         %a{:href => "/warehouses"}
           %i.fa.fa-home
           Warehouses
@@ -36,10 +40,6 @@
         %a{:href => "/item/departure"}
           %i.fa.fa-arrow-circle-left
           Issue
-      %li
-        %a{:href => "/stock_takes"}
-          %i.fa.fa-calendar
-          Stock Take
       -#%li
         %a{:href => "/status"}
           %i.glyphicon.glyphicon-stats
