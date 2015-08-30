@@ -9,7 +9,7 @@ class StockApp < Sinatra::Application
 
   get "/" do
     authenticate!
-    redirect 'item/arrival'
+    redirect 'stock_takes'
   end
 
 end

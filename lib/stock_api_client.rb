@@ -21,7 +21,7 @@ class StockApiClient
     @connection.get('/api/locations', {} )
   end
 
-  def get_items( params )
+  def get_items( params={} )
     @connection.get('/api/items', params )
   end
 
