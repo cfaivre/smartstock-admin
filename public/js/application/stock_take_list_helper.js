@@ -29,7 +29,7 @@ var StockTakeListHelper = function (data, config) {
           url: "/item_type",
         }).done(function(result) {
           ko.utils.arrayMap(JSON.parse(result), function(item_type) {
-            $("#statsTable tbody").append("<tr><td>" + k + "</td><td>" +  v + "</td><td>" + item_type.description + "</td></tr>");
+            $("#statsTable tbody").append("<tr><td>" + k + "</td><td>" + item_type.description + "</td><td>" +  v + "</td></tr>");
           });
           $('#statsmodal').modal('show');
         });
