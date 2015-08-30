@@ -11,6 +11,7 @@ gem 'sprockets', '~> 2.12.3'
 gem 'json', '~> 1.8.2'
 gem 'sinatra-flash', '~> 0.3.0'
 gem 'sinatra-websocket', '~> 0.3.1'
+gem 'prawn', '~> 2.0.2'
 
 group :test do
 #  gem 'byebug', '~> 3.5.1'
