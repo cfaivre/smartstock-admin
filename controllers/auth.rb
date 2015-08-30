@@ -10,7 +10,7 @@ class StockApp < Sinatra::Application
     if user = User.authenticate(params)
       session[:user] = user
       #redirect_to_original_request
-      redirect 'item/arrival'
+      redirect '/stock_takes'
     else
       flash[:notice] = 'You could not be signed in. Did you enter the correct username and password?'
       redirect '/login'
