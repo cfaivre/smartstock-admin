@@ -1,7 +1,7 @@
 #page-wrapper
   .row
     .col-lg-12
-      %h1.page-header Stock Takes
+      %h2.page-header Stock Level Reports
     / /.col-lg-12
   / /.row
 
@@ -17,8 +17,8 @@
               %thead
                 %tr
                   %th ID
-                  %th Count
                   %th Description
+                  %th Quantity
               %tbody
 
   .row
@@ -33,6 +33,9 @@
                 %tr.data-row{"data-toggle" => "context"}
                   %td
                     %a{"data-bind" => "text: created_at(), click: function() { $root.displayStats( stats() ); }"}
+                  %td
+                    %i.fa.fa-envelope
+                    %i.fa.fa-file-pdf-o
 
 %script{src: '/js/application/stock_take_list_helper.js'}
 :javascript
