@@ -2,12 +2,11 @@
   .sidebar-nav.navbar-collapse
     %ul#side-menu.nav
       %li.sidebar-search
-        %form{action: '/items'}
-          .input-group.custom-search-form
-            %input#sap_number.form-control{:name=> 'sap_number', :placeholder => "SAP No", :type => "text"}
-              %span.input-group-btn
-                %button.btn.btn-default{:type => "submit"}
-                  %i.fa.fa-search
+        .input-group.custom-search-form
+          %input#sap_number.form-control{:name=> 'sap_number', :placeholder => "SAP No", :type => "text"}
+            %span.input-group-btn
+              %button.btn.btn-default{:type => "submit"}
+                %i.fa.fa-search
         / /input-group
       %li
         %a{:href => "/stock_takes"}
