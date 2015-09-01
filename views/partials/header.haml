@@ -8,12 +8,12 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{:href => "index.html"} SB Admin v2.0
+    %a.navbar-brand{:href => "index.html"} Eskom Stock Admin
   / /.navbar-header
   %ul.nav.navbar-top-links.navbar-right
-    .small.text-danger.text-center= '(' + session[:user].name + ')'
     %li.dropdown
       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        %i.small.text-danger= '(' + session[:user].name + ')'
         %i.fa.fa-user.fa-fw
         %i.fa.fa-caret-down
       %ul.dropdown-menu.dropdown-user
@@ -27,7 +27,7 @@
             Settings
         %li.divider
         %li
-          %a{:href => "login.html"}
+          %a{:href => "/logout"}
             %i.fa.fa-sign-out.fa-fw
             Logout
       / /.dropdown-user
@@ -82,4 +82,4 @@
           %a{:href => "/logout"}
             %i.glyphicon.glyphicon-log-out
             Logout
-            %p.small.text-danger= '(' + session[:user].name + ')'
+            %i.small.text-danger= '(' + session[:user].name + ')'
