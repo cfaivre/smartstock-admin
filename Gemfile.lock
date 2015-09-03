@@ -37,6 +37,9 @@ GEM
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    mail (2.6.3)
+      mime-types (>= 1.16, < 3)
+    mime-types (2.6.1)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     pdf-core (0.6.0)
@@ -95,6 +98,7 @@ DEPENDENCIES
   faraday (~> 0.9.0.rc6)
   haml (~> 4.0.6)
   json (~> 1.8.2)
+  mail
   prawn (~> 2.0.2)
   rerun (~> 0.10.0)
   sass (~> 3.4.9)
