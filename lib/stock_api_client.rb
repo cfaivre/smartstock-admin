@@ -29,8 +29,8 @@ class StockApiClient
     @connection.get('/api/item-types', params )
   end
 
-  def get_stock_takes
-    @connection.get('/api/stock-takes', {} )
+  def get_stock_takes(params={} )
+    @connection.get('/api/stock-takes', params )
   end
 
   def item_details( rfids )

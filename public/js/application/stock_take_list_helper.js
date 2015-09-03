@@ -10,6 +10,12 @@ var StockTakeListHelper = function (data, config) {
 
   _applyKoBindings = function () {
 
+    $("#alert").hide();
+
+    $(".alert-close").click(function() {
+      $(this).parent().hide();
+    });
+
     _viewModel = ko.mapping.fromJS(data);
 
     _viewModel.stock_takes.removeAll();
@@ -36,7 +42,28 @@ var StockTakeListHelper = function (data, config) {
       });
     }
 
+    _viewModel.emailStats = function( id, date ) {
+      $("#alert").hide();
+      $("#alert").removeClass('alert-danger');
+      $("#alert").removeClass('alert-success');
+      $.ajax({
+        type: "POST",
+        data: "id=" + id + "&date=" + date,
+        url: "/stock_take/mail",
+      }).done(function(result) {
+        $("#alert").show();
+        $("#alert").addClass('alert-success');
+        $("#alert-text").text('Success sending mail!');
+      }).fail(function(result) {
+        $("#alert").show();
+        $("#alert").addClass('alert-danger');
+        $("#alert").addClass('alert-dismissable');
+        $("#alert-text").text('Error sending mail!');
+      });
+    }
+
     ko.applyBindings(_viewModel, _currentContext[0]);
+
   };
 
   _mapToJSON = function (model) {

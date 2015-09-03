@@ -1,10 +1,11 @@
 #page-wrapper
   .row
-    .col-lg-12
+    .col-lg-8
       %h2.page-header Stock Level Reports
-    / /.col-lg-12
-  / /.row
-
+    .col-lg-4
+      #alert.alert.alert-dismissable.page-header
+        %button.close.alert-close{"type"=>"button", "aria-hidden"=>"true"}x
+        #alert-text
   #statsmodal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
     .modal-dialog{"data-dismiss" => "modal"}
       .modal-content
@@ -34,7 +35,7 @@
                   %td
                     %a{"data-bind" => "text: created_at(), click: function() { $root.displayStats( stats() ); }"}
                   %td
-                    %i.fa.fa-envelope
+                    %i.fa.fa-envelope{"data-bind" => "click: function() { $root.emailStats( _id(), created_at() ); }"}
                     %a{ rel: "nofollow", "data-bind"=> ":attr: { 'href': '/pdfs/'+ _id() + '.pdf' }"}
                       %i.fa.fa-file-pdf-o
 
