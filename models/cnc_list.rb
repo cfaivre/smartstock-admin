@@ -8,7 +8,7 @@ class CncListModel
     viewmodel = CncListViewModel.new
     cncs = StockApiClient.new.get_cncs
     if !cncs.empty?
-      cncs.sort_by! { |cnc| cnc["name"] }
+      cncs.sort_by! { |cnc| cnc[:name] }
       cncs.each{|cnc|
         cnc[:name].gsub!(/\w+/, &:capitalize)
       }

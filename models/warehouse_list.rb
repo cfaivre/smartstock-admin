@@ -7,7 +7,12 @@ class WarehouseListModel
   def load_warehouses
     viewmodel = WarehouseListViewModel.new
     warehouses = StockApiClient.new.get_warehouses
-    warehouses.sort_by! { |warehouse| warehouse["name"] } unless warehouses.empty?
+    if !warehouses.empty?
+      warehouses.sort_by! { |warehouse| warehouse[:name] }
+      warehouses.each{|warehouse|
+        warehouse[:name].gsub!(/\w+/, &:capitalize)
+      }
+    end
     viewmodel.warehouses = warehouses
     viewmodel
   end
