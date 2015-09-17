@@ -42,6 +42,22 @@ var StockTakeListHelper = function (data, config) {
       });
     }
 
+    _viewModel.displayStatsChart = function( stats ) {
+      $.each(stats, function(k,v){
+        $.ajax({
+          type: "GET",
+          data: "sap_number=" + k,
+          url: "/item_type",
+        }).done(function(result) {
+          ko.utils.arrayMap(JSON.parse(result), function(item_type) {
+            //$("#statsTable tbody").append("<tr><td>" + k + "</td><td>" + item_type.description + "</td><td>" +  v + "</td></tr>");
+          });
+console.log('hello');
+          $('#statsChartModal').modal('show');
+        });
+      });
+    }
+
     _viewModel.emailStats = function( id, date ) {
       $("#alert").hide();
       $("#alert").removeClass('alert-danger');
@@ -65,6 +81,17 @@ var StockTakeListHelper = function (data, config) {
     ko.applyBindings(_viewModel, _currentContext[0]);
 
   };
+
+  $('#statsChartModal').on('shown.bs.modal', function (event) {
+console.log('blabla');
+    var chart_data =
+            [ { value: 2,
+                label: 2,
+                color: "#00CC00",
+                highlight: "#99EB99" } ]
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myPieChart = new Chart(ctx).Pie(chart_data);
+  });
 
   _mapToJSON = function (model) {
     var ignoreMapping;
