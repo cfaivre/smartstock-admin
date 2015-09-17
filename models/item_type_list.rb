@@ -4,9 +4,9 @@ class ItemTypeListModel
     @user_id = user_id
   end
 
-  def load_item_types
+  def load_item_types( params )
     viewmodel = ItemTypeListViewModel.new
-    item_types = StockApiClient.new.get_item_types
+    item_types = StockApiClient.new.get_item_types( params )
     if !item_types.empty?
       item_types.sort_by! { |item_type| item_type[:sap_number] }
       item_types.each{|item_type|

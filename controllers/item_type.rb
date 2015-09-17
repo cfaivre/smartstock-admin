@@ -4,7 +4,7 @@ require 'active_record'
 get "/item_types" do
   authenticate!
   ActiveRecord::Base.include_root_in_json = false
-  viewmodel = ItemTypeListModel.new.load_item_types
+  viewmodel = ItemTypeListModel.new.load_item_types( params )
   @data = viewmodel.to_json
   haml :'item_type/list/index'
 end
