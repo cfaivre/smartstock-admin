@@ -36,12 +36,13 @@
   .navbar-default.sidebar{:role => "navigation"}
     .sidebar-nav.navbar-collapse
       %ul#side-menu.nav
-        %li.sidebar-search
-          .input-group.custom-search-form
-            %input#sap_number.form-control{:name=> 'sap_number', :placeholder => "Material Number", :type => "text"}
-              %span.input-group-btn
-                %button.btn.btn-default{:type => "submit"}
-                  %i.fa.fa-search
+        %form{:action => '/item_types', :method => 'get'}
+          %li.sidebar-search
+            .input-group.custom-search-form
+              %input#sap_number.form-control{:name=> 'sap_number', :placeholder => "Material Number", :type => "text"}
+                %span.input-group-btn
+                  %button.btn.btn-default{:type => "submit"}
+                    %i.fa.fa-search
           / /input-group
         %li
           %a{:href => "/stock_takes"}
