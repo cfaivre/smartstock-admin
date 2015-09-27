@@ -11,11 +11,13 @@ get '/stock_takes' do
 end
 
 post '/stock_take/mail' do
+  to_email ||= YAML.load_file(File.join(__dir__, '../config/email.yml'))[ session[:user].name ]
+  raise "Error sending mail! Invalid email address #{to_email} ." if to_email.blank?
   Mail.defaults do
     delivery_method :sendmail
   end
   mail = Mail.new
-  mail.to = 'christophe@faivre.co.za'
+  mail.to = to_email
   mail.from = 'reports@mshini.com'
   mail.subject = 'Stock Level Report'
   mail.body = "Please find the stock level report for #{params['date']} attached."

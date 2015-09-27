@@ -22,7 +22,7 @@
                   %th Quantity
               %tbody
 
-  #statsChartModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  -##statsChartModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
     .modal-dialog{"data-dismiss" => "modal"}
       .modal-content
         %button.close{"data-dismiss" => "modal", :type => "button"}
@@ -45,12 +45,12 @@
                   %td
                     %a{"data-bind" => "text: created_at(), click: function() { $root.displayStats( stats() ); }"}
                   %td
-                    %i.fa.fa-pie-chart{"data-bind" => "click: function() { $root.displayStatsChart( stats() ); }"}
+                    -#%i.fa.fa-pie-chart{"data-bind" => "click: function() { $root.displayStatsChart( stats() ); }"}
                     %i.fa.fa-envelope{"data-bind" => "click: function() { $root.emailStats( _id(), created_at() ); }"}
                     %a{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.pdf' }"}
                       %i.fa.fa-file-pdf-o
 
-  .row
+  -#.row
     .col-lg-6
       -#.canvas-holder.half
         -#%canvas#myChart{style:'width:518px;height:400px;'}

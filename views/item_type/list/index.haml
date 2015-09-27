@@ -34,7 +34,8 @@
               %tbody{"data-bind" => "foreach: item_types()"}
                 %tr.data-row{"data-toggle" => "context"}
                   %td
-                    %a{"data-bind" => "text: sap_number(), :attr: { 'href': '/items?sap_number=' + sap_number() }"}
+                    -#%a{"data-bind" => "text: sap_number(), :attr: { 'href': '/items?sap_number=' + sap_number() }"}
+                    %a{"data-bind" => "text: sap_number()"}
                   %td{"data-bind" => "text: material_type()"}
                   %td{"data-bind" => "text: description()"}
                     %td{"data-bind" => "style: { 'background-color': color() }"}
