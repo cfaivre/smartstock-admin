@@ -29,7 +29,7 @@
                   %th Description
                   %th Color
                   %th Image
-                  %th Rating
+                  -#%th Rating
                   -#%th Stats
               %tbody{"data-bind" => "foreach: item_types()"}
                 %tr.data-row{"data-toggle" => "context"}
@@ -42,7 +42,7 @@
                   %td
                     %a.pop{href: '#'}
                       %img.item_type_thumbnail{"data-bind" => "click: $root.openImage, attr: {src: image()}"}
-                  %td{"data-bind" => "text: rating()"}
+                  -#%td{"data-bind" => "text: rating()"}
                   -#%td
                     %a{href: '#'}
                       .glyphicon.glyphicon-stats{"data-bind" => "click: $root.displayStats"}
