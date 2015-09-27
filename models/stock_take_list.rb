@@ -25,7 +25,7 @@ class StockTakeListModel
     require "prawn/table"
     pdf = Prawn::Document.new
     pdf.text( "Stock Level Report: #{Time.parse( date.to_s ).strftime('%Y/%m/%d %H:%M')}" )
-    contents = [ [ { content: 'SAP number'},
+    contents = [ [ { content: 'Material number'},
                    { content: 'Description'},
                    { content: 'Quantity'} ] ]
     data.each do |k, v|
