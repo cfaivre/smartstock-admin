@@ -18,7 +18,7 @@ post '/stock_take/mail' do
   end
   mail = Mail.new
   mail.to = to_email
-  mail.from = 'reports@mshini.com'
+  mail.from = 'reports@smartstock.io'
   mail.subject = 'Stock Level Report'
   mail.body = "Please find the stock level report for #{params['date']} attached."
   mail.add_file( File.join(File.dirname(__FILE__), "../public/pdfs/#{params['id']}.pdf") )

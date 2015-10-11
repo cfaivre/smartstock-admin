@@ -2,8 +2,7 @@ test:
   uri: 'http://localhost:9393'
 development:
   uri: 'http://localhost:9393'
-  #uri: 'http://smartstock-api.staging.mshini.com'
 staging:
-  uri: 'http://staging.smartstock-api.io'
+  uri: 'http://api.staging.smartstock.io'
 production:
-  uri: 'http://smartstock-api.io'
+  uri: 'http://api.smartstock.io'
