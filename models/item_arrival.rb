@@ -12,10 +12,8 @@ class ItemArrivalModel
     viewmodel.items = []
     viewmodel.user = @username
     viewmodel.new_location = @username
-    #warehouses = { label: 'Warehouses', locations: StockApiClient.new.get_warehouses.map{|loc| { label: loc[:name] } } }
     #cncs = { label: 'CNCs', locations: StockApiClient.new.get_cncs.map{|loc| { label: loc[:name] } } }
     #viewmodel.locations = []
-    #viewmodel.locations << warehouses
     #viewmodel.locations << cncs
     viewmodel
   end
