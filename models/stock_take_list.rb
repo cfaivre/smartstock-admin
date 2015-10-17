@@ -17,7 +17,7 @@ class StockTakeListModel
       new_stats = stock_take[:stats].sort_by(&:last).reverse.to_h
       stock_take[:stats] = new_stats
     }
-    viewmodel.stock_takes = stock_takes
+    viewmodel.stock_takes = stock_takes.reverse
     viewmodel
   end
 
