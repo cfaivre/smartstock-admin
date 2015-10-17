@@ -12,9 +12,7 @@ class ItemArrivalModel
     viewmodel.items = []
     viewmodel.user = @username
     viewmodel.new_location = @username
-    #cncs = { label: 'CNCs', locations: StockApiClient.new.get_cncs.map{|loc| { label: loc[:name] } } }
     #viewmodel.locations = []
-    #viewmodel.locations << cncs
     viewmodel
   end
 

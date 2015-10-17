@@ -1,7 +1,7 @@
 require 'json'
 require_relative 'auth'
 require_relative 'main'
-require_relative 'cnc'
+require_relative 'location'
 require_relative 'item'
 require_relative 'item_type'
 require_relative 'search'

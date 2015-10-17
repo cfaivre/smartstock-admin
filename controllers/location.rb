@@ -1,10 +1,10 @@
 require 'active_record'
-# Cnc list
+# LOcation list
 #####################################
-get "/cncs" do
+get "/locations" do
   authenticate!
   ActiveRecord::Base.include_root_in_json = false
-  viewmodel = CncListModel.new.load_cncs
+  viewmodel = LocationListModel.new.load_locations
   @data = viewmodel.to_json
-  haml :'cnc/list/index'
+  haml :'location/list/index'
 end

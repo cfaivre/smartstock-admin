@@ -1,10 +1,10 @@
-class CncListViewModel < BaseViewModel
+class LocationListViewModel < BaseViewModel
   include ActiveModel::Serialization
-  attr_accessor :cncs
+  attr_accessor :locations
 
   def initialize(user_id=nil )
     @user_id = user_id
-    self.cncs = []
+    self.locations = []
   end
 
 end

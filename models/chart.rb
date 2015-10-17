@@ -17,7 +17,7 @@ class ChartModel
 
     items = api.get_items({sap_number: sap_number})
 
-    locations = api.get_cncs + api.get_locations
+    locations = api.get_locations
     table_data = []
     counter = 0
     result = []
@@ -46,7 +46,7 @@ class ChartModel
 
     items = api.get_items({sap_number: sap_number})
 
-    locations = api.get_cncs + api.get_locations
+    locations = api.get_locations
 
     chart_data = []
     counter = 0

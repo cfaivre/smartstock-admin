@@ -9,10 +9,6 @@ class StockApiClient
     @connection = JsonService.new( URI.parse(@config['uri']) )
   end
 
-  def get_cncs
-    @connection.get('/api/cncs', {} )
-  end
-
   def get_locations
     @connection.get('/api/locations', {} )
   end

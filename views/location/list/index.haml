@@ -1,7 +1,7 @@
 #page-wrapper
   .row
     .col-lg-12
-      %h2.page-header CNCs
+      %h2.page-header Locations
     / /.col-lg-12
   / /.row
   .row
@@ -16,20 +16,20 @@
                 %tr
                   %th Name
                   %th Code
-              %tbody{"data-bind" => "foreach: cncs()"}
+              %tbody{"data-bind" => "foreach: locations()"}
                 %tr.data-row{"data-toggle" => "context"}
                   %td{"data-bind" => "text: name()"}
                   %td{"data-bind" => "text: code()"}
 
-%script{src: '/js/application/cnc_list_helper.js'}
+%script{src: '/js/application/location_list_helper.js'}
 :javascript
-  var cncListHelper;
+  var locationListHelper;
   var data = #{@data};
   $(document).ready(function () {
       var config = {
-          cncListUrl: '/cnc/list/',
+          locationListUrl: '/location/list/',
       };
-    cncListHelper = new CncListHelper(data,config);
-    cncListHelper.setup({})
+    locationListHelper = new LocationListHelper(data,config);
+    locationListHelper.setup({})
   });
 

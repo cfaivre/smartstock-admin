@@ -1,4 +1,4 @@
-var CncListHelper = function (data, config) {
+var LocationListHelper = function (data, config) {
   'use strict';
   var  _viewModel,
        _applyKoBindings,
@@ -11,12 +11,12 @@ var CncListHelper = function (data, config) {
 
     _viewModel = ko.mapping.fromJS(data);
 
-    _viewModel.cncs.removeAll();
+    _viewModel.locations.removeAll();
     var model = ko.mapping.fromJS(data);
-    var mappedCncs = ko.utils.arrayMap(data.cncs, function(cnc) {
-      return new Cnc(cnc.code, cnc.name);
+    var mappedLocations = ko.utils.arrayMap(data.locations, function(location) {
+      return new Location(location.code, location.name);
     });
-    _viewModel.cncs( mappedCncs );
+    _viewModel.locations( mappedLocations );
 
     ko.applyBindings(_viewModel, _currentContext[0]);
   };
@@ -29,7 +29,7 @@ var CncListHelper = function (data, config) {
       return ko.mapping.toJSON(model, ignoreMapping);
   };
 
-  var Cnc = function(code, name) {
+  var Location = function(code, name) {
       this.code = ko.observable(code);
       this.name = ko.observable(name);
   }
