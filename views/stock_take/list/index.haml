@@ -33,23 +33,22 @@
             %canvas#myChart{style:'width:518px;height:400px;'}
 
   .row
-    .col-lg-12
+    .col-lg-6
       .panel.panel-default
         .panel-heading
         / /.panel-heading
         .panel-body
           .dataTable_wrapper
-            %table#dataTables-example.table.table-striped.table-bordered.table-hover
+            %table#dataTables-example.table.table-striped.table-bordered.table-hover.table-vcenter
               %tbody{"data-bind" => "foreach: stock_takes()"}
-                %tr.data-row{"data-toggle" => "context"}
-                  %td
-                    %a{"data-bind" => "text: created_at(), click: function() { $root.displayStats( stats() ); }"}
-                  %td
+                %tr{"data-toggle" => "context"}
+                  %td.col-sm-2
+                    %a.btn.btn-outline.btn-info.btn-sm{"data-bind" => "text: created_at(), click: function() { $root.displayStats( stats() ); }"}
                     -#%i.fa.fa-pie-chart{"data-bind" => "click: function() { $root.displayStatsChart( stats() ); }"}
-                    %a{ href: '' }
-                      %i.fa.fa-envelope{"data-bind" => "click: function() { $root.emailStats( _id(), created_at() ); }"}
-                    %a{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.pdf' }"}
-                      %i.fa.fa-download
+                  %td.col-sm-1
+                    %a.btn.btn-info.btn-sm{ href: '', "data-bind" => "click: function() { $root.emailStats( _id(), created_at() ); }"} Email
+                    %a.btn.btn-info.btn-sm{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.pdf' }"} PDF
+                    %a.btn.btn-info.btn-sm{ rel: "nofollow", "data-bind"=> ":attr: { 'target': '_blank', 'href': '/pdfs/'+ _id() + '.csv' }"} CSV
 
   -#.row
     .col-lg-6
